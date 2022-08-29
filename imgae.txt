@@ -1,0 +1,3 @@
+npm install @react-native-firebase/storage --save
+
+npm install react-native-document-picker --save
