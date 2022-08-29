@@ -72,10 +72,6 @@ const AdminScreen = ({ route, navigation }) => {
 
   return (
     <View>
-      <ImageBackground
-        source={require("../assets/admin2.jpg")}
-        style={{ width: "100%", height: "100%" }}
-      >
         <View style={styles.container}>
           <View style={styles.adminView}>
             <Image
@@ -93,11 +89,6 @@ const AdminScreen = ({ route, navigation }) => {
           </View>
 
           <View style={{ flex: 2, padding: 10, paddingTop: 0 }}>
-          <Animatable.View
-              animation='fadeInRightBig'
-              duration={4000}
-              //iterationCount='infinite'
-            >
             <FlatList
               data={data}
               keyExtractor={(_,i) => String(i)}
@@ -155,10 +146,8 @@ const AdminScreen = ({ route, navigation }) => {
                 </View>
               )}
               />
-            </Animatable.View>
           </View>
         </View>
-      </ImageBackground>
     </View>
   );
 };
@@ -210,7 +199,7 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     height: "100%",
-    //backgroundColor: "#000",
+    backgroundColor: "#000",
     paddingTop: 18,
     padding: 10
   },

@@ -8,7 +8,6 @@ import {
     SafeAreaView,
     TouchableOpacity
 } from "react-native";
-import * as Animatable from 'react-native-animatable';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { firebase } from "../config";
 
@@ -63,10 +62,6 @@ const Userfeedback = ({ route, navigation }) => {
     return (
         <View>
             <View style={styles.container}>
-                <ImageBackground
-                    source={require('../assets/bg5.jpg')}
-                    style={{ width: '100%', height: "100%", }}
-                >
                     <View>
                         <Text style={styles.adminText}>Users' Feedback</Text>
                     </View>
@@ -77,11 +72,6 @@ const Userfeedback = ({ route, navigation }) => {
                             keyExtractor={(_,i) => String(i)}
                             renderItem={({ item }) => (
                                 <SafeAreaView style={{ flex: 1, padding: 5 }}>
-                                    <Animatable.View
-                                        animation="fadeInUp"
-                                        duration={1000}
-
-                                    >
                                         <View style={styles.Box}>
                                             <View style={{ flexDirection: 'row' }}>
 
@@ -112,16 +102,11 @@ const Userfeedback = ({ route, navigation }) => {
                                                 </Text>
                                             </View>
                                         </View>
-                                    </Animatable.View>
                                 </SafeAreaView>
 
                             )}
                         />
                     </View>
-
-
-
-                </ImageBackground>
             </View>
         </View>
     );

@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { firebase } from "../config";
-import * as Animatable from 'react-native-animatable';
 
 const UserList = ({ route, navigation }) => {
 
@@ -57,10 +56,6 @@ const UserList = ({ route, navigation }) => {
   return (
     <View>
       <View style={styles.container}>
-        <ImageBackground
-          source={require("../assets/admin4.jpg")}
-          style={{ width: "100%", height: "100%" }}
-        >
           <View>
             <Text style={styles.adminText}>View All Users</Text>
           </View>
@@ -70,9 +65,6 @@ const UserList = ({ route, navigation }) => {
               data={data}
               keyExtractor={(_,i) => String(i)}
               renderItem={({ item }) => (
-                <Animatable.View
-                animation='fadeInDownBig'
-                    duration={4000}>
                 <View style={styles.Box}>
                   <View>
                     <Text style={styles.padd}>
@@ -109,11 +101,9 @@ const UserList = ({ route, navigation }) => {
                     </View>
                   </View>
                   </View>
-                </Animatable.View>
               )}
             />
           </View>
-        </ImageBackground>
       </View>
     </View>
   );

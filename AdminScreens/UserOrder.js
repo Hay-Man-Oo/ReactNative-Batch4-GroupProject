@@ -4,18 +4,11 @@ import {
   View,
   Text,
   FlatList,
-  TextInput,
   TouchableOpacity,
   ScrollView,
-  Alert,
-  ImageBackground
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { firebase } from "../config";
-//import { useIsFocused } from '@react-navigation/native';//
-import { collection, doc, setDoc, addDoc, updateDoc, deleteDoc } from "firebase/firestore";
-import { db } from "../config";
-import * as Animatable from 'react-native-animatable';
 
 const UserOrder = ({ route, navigation }) => {
 
@@ -87,10 +80,6 @@ const UserOrder = ({ route, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={require('../assets/newBlack6.jpg')}
-        style={{ width: '100%', height: "100%", }}
-      >
         <Text style={styles.adminText}>OrderDetail</Text>
         <View style={{ flex: 1, padding: 10 }}>
           <FlatList
@@ -99,9 +88,6 @@ const UserOrder = ({ route, navigation }) => {
             style={{ flex: 1, marginTop: 16 }}
             keyExtractor={(_,i) => String(i)}
             renderItem={({ item }) => (
-              <Animatable.View
-                animation='fadeInUpBig'
-                duration={4000}>
                 <View>
                   {/*<TouchableOpacity onPress={showConfirmDialog}>*/}
                   <View style={{
@@ -198,9 +184,14 @@ const UserOrder = ({ route, navigation }) => {
 
 
 
-
-
-                      <TouchableOpacity
+                    {
+                      item.status.pending === true ?
+                        (
+                            null
+                          
+                        )
+                          :
+                          <TouchableOpacity
                         onPress={() => navigation.navigate('orderConfirm', { item })}
                         style={styles.button}
                       >
@@ -208,6 +199,8 @@ const UserOrder = ({ route, navigation }) => {
                         <Text style={{ borderwidth: 1, padding: 5, fontWeight: 'bold' }}>Order Confirm</Text>
 
                       </TouchableOpacity>
+                    }
+                           
 
                     </ScrollView>
 
@@ -216,11 +209,9 @@ const UserOrder = ({ route, navigation }) => {
                   </View>
                   {/*</TouchableOpacity> */}
                 </View>
-              </Animatable.View>
             )}
           />
         </View>
-      </ImageBackground>
     </View>
 
   );
